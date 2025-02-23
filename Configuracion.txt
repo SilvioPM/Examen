@@ -1,0 +1,654 @@
+Configuracion de IPS de conexion a IBW y ALFA
+Router 0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0	
+Router(config-if)#ip add 90.250.80.1 255.255.255.252
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+-------------------------------------------------------------------------
+Router 1
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0
+%Invalid interface type and number
+Router(config)#int s0/0/0
+Router(config-if)#ip add 90.250.80.2 255.255.255.252
+Router(config-if)#no shu 
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+Router(config-if)#
+Router#
+-------------------------------------------------------------------------------------
+Asinacion de IP con Red 170.58.192.0/20 ---/23 IBW
+A router 0 int S0/0/1:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 170.58.192.2 255.255.254.0
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 2 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/0/0
+Router(config-if)#ip add 170.58.192.1 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+---------------------------------------------------------------------
+Asignacion de IP 170.58.194.0/23
+A Router 2 int S0/0/1:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 170.58.194.1 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 3 int S0/0/0:
+outer>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 170.58.194.2 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 2 int S0/1/0:
+Router#ena	
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/1/0
+Router(config-if)#ip add 170.58.198.1 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 4 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 170.58.198.2 255.255.254.0
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A router 4 int S0/0/1
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/0/1
+Router(config-if)#ip add 170.58.196.2 255.255.254.0
+Router(config-if)#no shu 
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 3 int S0/0/1
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/0/1
+Router(config-if)#ip add 170.58.196.1 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 3 int S0/1/0:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/1/0
+Router(config-if)#ip add 170.58.200.1 255.255.254.0
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 8 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 170.58.200.2 255.255.254.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+-------------------------------------------------------------------------------
+Asinacion de IP con Red 132.40.76.0/24 ---/27 ALFA
+A Router 5 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/0/0
+Router(config-if)#ip add 132.40.76.1 255.255.255.224
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 5 int S0/0/1:
+Router#ena 
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 132.40.76.33 255.255.255.224
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 5 int S0/1/0:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/1/0
+Router(config-if)#ip add 132.40.76.65 255.255.255.224
+Router(config-if)#no shu 
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 1 int S0/0/1:
+Router>ena
+Router#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to up
+conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 132.40.76.2 255.255.255.224
+Router(config-if)#no shu
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 6 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 132.40.76.35 255.255.255.224
+Router(config-if)#no shu 
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 6 int S0/0/1:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 132.40.76.97 255.255.255.224
+Router(config-if)#no shu 
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 6 int S0/1/0:
+Router#
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/1/0
+Router(config-if)#ip add 132.40.76.129 255.255.255.224
+Router(config-if)#no shu
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 7 int S0/0/0:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int S0/0/0
+Router(config-if)#ip add 132.40.76.66 255.255.255.224
+Router(config-if)#no shu 
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 7 int S0/0/1:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/1
+Router(config-if)#ip add 132.40.76.98 255.255.255.224
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+A Router 10 int S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 132.40.76.130 255.255.255.224
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+------------------------------------------------------------------------------------
+COnfiguracion de OSPF en Router 0 y 1
+Router 0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router ospf 1
+Router(config-router)#network 90.250.80.0 255.255.255.252 area 0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router 1:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router ospf 1
+Router(config-router)#network 90.250.80.0 255.255.255.252 area 0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+-----------------------------------------------------------------------------------
+Configuracion RIPv2 ALFA
+Router 5:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip
+Router(config-router)#version 2	
+Router(config-router)#networ 132.40.76.0
+Router(config-router)#networ 132.40.76.32	
+Router(config-router)#networ 132.40.76.64
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router 7:
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#networ 132.40.76.64
+Router(config-router)#networ 132.40.76.96
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router 6:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#networ 132.40.76.32
+Router(config-router)#networ 132.40.76.96
+Router(config-router)#networ 132.40.76.128
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router 1:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#networ 132.40.76.0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router 10:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip 
+Router(config-router)#version 2
+Router(config-router)#networ 132.40.76.128
+Router(config-router)#do wr
+Building configuration...
+[OK]
+-----------------------------------------------------------------------------------------
+redistribucion entre protocolo OSPF y RIPv2
+Router 1:
+Router#ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router ospf 1
+Router(config-router)#redistribute rip subnets 
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#redistribute ospf 1 metric 5
+Router(config-router)#do wr
+Building configuration...
+[OK]
+--------------------------------------------------------------------------------------------
+Configurando BGP en IBW
+A Router2 :
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65001
+Router(config-router)#neighbor 170.58.192.2 remote-as 65002
+Router(config-router)#neighbor 170.58.194.2 remote-as 65003
+Router(config-router)#neighbor 170.58.198.2 remote-as 65004
+Router(config-router)#do wr
+Building configuration...
+[OK]	
+Router(config-router)#networ 170.58.192.0 mask 255.255.254.0
+Router(config-router)#networ 170.58.198.0 mask 255.255.254.0
+Router(config-router)#networ 170.58.194.0 mask 255.255.254.0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+A Router 0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65002
+Router(config-router)#ne
+Router(config-router)#neih
+Router(config-router)#neig
+Router(config-router)#neighbor 170.58.192.1 remote-as 65001
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 170.58.192.1 Up
+Router(config-router)#do wr
+Building configuration...
+[OK]
+A Router 4:
+Router>ena 
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65004
+Router(config-router)#neig
+Router(config-router)#neighbor 170.58.198.1 remote-as 65001
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 170.58.198.1 Up
+Router(config-router)#neighbor 170.58.196.1 remote-as 65003
+Router(config-router)#networ 170.58.198.0 mask 255.255.254.0
+Router(config-router)#networ 170.58.196.0 mask 255.255.254.0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+A ROuter 3:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65003
+Router(config-router)#neig
+Router(config-router)#neighbor 170.58.192.1 remote-as 65001
+Router(config-router)#neighbor 170.58.196.1 remote-as 65004
+Router(config-router)#neighbor 170.58.196.2 remote-as 65004
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 170.58.196.2 Up
+Router(config-router)#neighbor 170.58.200.2 remote-as 65005
+Router(config-router)#networ 170.58.192.0 mask 255.255.254.0
+Router(config-router)#networ 170.58.196.0 mask 255.255.254.0
+Router(config-router)#networ 170.58.200.0 mask 255.255.254.0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+A Router 8
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65005
+Router(config-router)#neig
+Router(config-router)#neighbor 170.58.200.1 remote-as 65003
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 170.58.200.1 Up
+Router(config-router)#network 170.58.200.0 mask 255.255.254.0
+Router(config-router)#do wr
+Building configuration...
+[OK]
+--------------------------------------------------------------------------------------
+Redistribucion OSPF-BGP:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router bgp 65002
+Router(config-router)#redistribute ospf 1 match internal external 1 external 2
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router(config-router)#exit
+Router(config)#router ospf 1
+Router(config-router)#redistribute bgp 65002 subnets
+Router(config-router)#do wr
+Building configuration...
+[OK]
+----------------------------------------------------------------------------------------
+Configuracion de VTP en swich6 mode server:
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vtp domain VLANS
+Changing VTP domain name from NULL to VLANS	
+Switch(config)#vtp mode server
+Device mode already VTP SERVER.
+Switch(config)#vtp pass cisco123
+Setting device VLAN database password to cisco123
+Switch(config)#vtp version 2
+Switch(config)#vlan 10
+Switch(config-vlan)#name Oficina
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#name Gerencia
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#name Tesoreria
+Switch(config-vlan)#vlan 40
+Switch(config-vlan)#name Admon
+Switch(config-vlan)#vlan 50 
+Switch(config-vlan)#name RRHH
+Switch(config-vlan)#vlan 60 
+Switch(config-vlan)#name Phone
+Switch(config-vlan)#vlan 70
+Switch(config-vlan)#name Visitantes
+Switch(config-vlan)#exit
+Switch(config)#int range fa0/1-04
+Switch(config-if-range)#sw mode trunk
+--------------------------------------------------------------------------
+Configurando cliente VTP Swich 5:
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vtp domain VLANS
+Changing VTP domain name from NULL to VLANS
+Switch(config)#vtp mode client
+Setting device to VTP CLIENT mode.
+Switch(config)#vtp pass cisco123
+Setting device VLAN database password to cisco123
+Switch(config)#vtp version 2
+Cannot modify version in VTP client mode
+Switch(config)#int f0/2
+Switch(config-if)#sw mode trunk
+Switch(config-if)#do wr
+A Swich 4:
+Switch>
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vtp domain VLANS
+Changing VTP domain name from NULL to VLANS
+Switch(config)#vtp mode client
+Setting device to VTP CLIENT mode.
+Switch(config)#vtp pass cisco123
+Setting device VLAN database password to cisco123
+Switch(config)#vtp version 2
+Cannot modify version in VTP client mode
+Switch(config)#int f0/1
+Switch(config-if)#sw mo tr
+DE IGUAL MANERA A LOS SIGUIENTE SWICH 2,3,8,9,10,7
+-----------------------------------------------------------------------------------
+COnfiguracion de servidores.
+asignacion de IP a router 13:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int g0/0
+Router(config-if)#ip add 170.90.46.1 255.255.255.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+--------------------------------------------------------------------------------------------
+COnfiguración de STP en swich6 root Brige:
+Switch>ena 
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#spa
+Switch(config)#spanning-tree vlan 1 pri
+Switch(config)#spanning-tree vlan 1 priority 0
+Switch(config)#do wr
+Building configuration...
+[OK]
+Switch 2 como secundario:
+Switch>ena 
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#spa
+Switch(config)#spanning-tree vlan 1 prio
+Switch(config)#spanning-tree vlan 1 priority 4096
+Switch(config)#do wr
+Building configuration...
+[OK]
+---------------------------------------------------------------------
+Configuracion de DHCP en Router Edificio 1.
+Router>ena 
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip dhcp excluded-address 170.90.46.1 170.90.46.99	
+Router(config)#ip dhcp pool RED-LAN 
+Router(dhcp-config)#networ 170.90.46.0 255.255.255.0
+Router(dhcp-config)#default-router 170.90.46.1
+Router(dhcp-config)#dns-server 170.90.46.30
+-------------------------------------------------------------------------------
+Asignacion de Ip a router Edificio 1 y Roueter ED2
+Router ED1 S0/0/1:
+Router#conf t 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#int s0/0/1
+Router(config-if)#ip add 172.16.96.1 255.255.255.224.0
+Router(config-if)#ip add 172.16.96.1 255.255.224.0
+Router(config-if)#no shu
+Router(config-if)#do wr
+Building configuration...
+[OK]
+Router(config-if)#
+Router ED2 S0/0/0:
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+Router(config-if)#ip add 172.16.96.2 255.255.224.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+do wr
+Building configuration...
+[OK]
+----------------------------------------------------------------------------------------
+COnfiguracion de asigacion de ip a ED2 G0/2 y configuracion de DHCP en router ED2:
+IP en Router ED G0/2: 
+Router(config)#int g0/2
+Router(config-if)#ip add 172.16.128.1 255.255.224
+Router(config-if)#ip add 172.16.128.1 255.255.224.0
+Router(config-if)#no shu
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed state to up
+Router(config-if)#do wr
+Building configuration...
+[OK]
+Configuracion de DHCP en Router ED2:
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip dhcp excluded-address 172.16.128.1 172.16.128.99
+Router(config)#ip dhcp pool RED-LAN 
+Router(dhcp-config)#networ 172.16.128.0 255.255.224.0
+Router(dhcp-config)#default-router 172.16.128.1
+Router(dhcp-config)#dns-server 170.90.46.30
+Router(dhcp-config)#do wr
+---------------------------------------------------------------------------------------------------
+Configuracion de VTP mode Server a swicht16 en ED2 y creacion de vlans:
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vtp domain VLANSED2
+Changing VTP domain name from NULL to VLANSED2
+Switch(config)#vtp mode server
+Device mode already VTP SERVER.
+Switch(config)#vtp pass cisco123
+Setting device VLAN database password to cisco123
+Switch(config)#vtp version 2
+Switch(config)#vlan 10
+Switch(config-vlan)#name Secretaria
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#name Registro
+Switch(config-vlan)#vlan 30 
+Switch(config-vlan)#name Sala_de_Sesiones 
+Switch(config-vlan)#vlan 40
+Switch(config-vlan)#name VoIP2
+Switch(config-vlan)#do wr
+Building configuration...
+[OK]
+Configuracion de VTP mode client en Swicht 17,14,15:
+--------------------------------------------------------------------------------------------
+Configuracion Etherchannel active swicht 0:
+
+witch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int r f0/2-5
+Switch(config-if-range)#channel-group 1 mode active
+Switch(config-if-range)#
+Creating a port-channel interface Port-channel 1
+Switch(config-if-range)#exit
+Switch(config)#int por
+Switch(config)#int port-channel1
+Switch(config-if)#sw mo tr
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#do wr
+Building configuration...
+[OK]
+
+Configurando etherchannel en swicht 1 mode Passive:
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int r f0/1-4	
+Switch(config-if-range)#channel-group 1 mode passive
+Switch(config-if-range)#
+Creating a port-channel interface Port-channel 1
+Switch(config-if-range)#exit
+Switch(config)#int por
+Switch(config)#int port-channel 1
+Switch(config-if)#sw mo tr
+Switch(config-if)#do wr
+Building configuration...
+[OK]
